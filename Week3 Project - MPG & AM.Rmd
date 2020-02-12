@@ -1,0 +1,23 @@
+---
+title: "R Markdown Presentation & Plotly"
+author: "Alexander Sanchez"
+date: "2/11/2020"
+output: html_document
+---
+
+
+
+## MPG VS Transmition
+
+We show the relationship with the miles per galon and the transmition of the car. 
+The 0 is the automatic and 1 is manual.
+
+```{r plot, echo=FALSE}
+library(ggplot2)
+library(plotly)
+
+
+data(mtcars)
+
+plot_ly(mtcars, y = ~mpg, color = ~factor(am), type = "box", boxpoints = "all")
+```
