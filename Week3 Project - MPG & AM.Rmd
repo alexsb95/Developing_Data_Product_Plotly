@@ -21,8 +21,6 @@ data(mtcars)
 mtcars$am <- as.factor(mtcars$am)
 ```
 
-## Plot
-
 
 ```{r plot, echo=FALSE}
 plot_ly(mtcars, x = ~am, y = ~mpg, color = ~am, colors = c("#b2e0d2", "#c6cfe5"), type = "box", boxpoints = "all", jitter = 0.4,pointpos = -1.8)
