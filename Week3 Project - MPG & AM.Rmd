@@ -1,23 +1,31 @@
 ---
-title: "R Markdown Presentation & Plotly"
+title: "Car MPG VS Transmition"
 author: "Alexander Sanchez"
 date: "2/11/2020"
-output: html_document
+output: ioslides_presentation
 ---
 
 
 
-## MPG VS Transmition
+## Context
 
 We show the relationship with the miles per galon and the transmition of the car. 
 The 0 is the automatic and 1 is manual.
 
-```{r plot, echo=FALSE}
+```{r data, include=FALSE}
 library(ggplot2)
 library(plotly)
 
 
 data(mtcars)
-
-plot_ly(mtcars, y = ~mpg, color = ~factor(am), type = "box", boxpoints = "all")
+mtcars$am <- as.factor(mtcars$am)
 ```
+
+## Plot
+
+
+```{r plot, echo=FALSE}
+plot_ly(mtcars, x = ~am, y = ~mpg, color = ~am, colors = c("#b2e0d2", "#c6cfe5"), type = "box", boxpoints = "all", jitter = 0.4,pointpos = -1.8)
+
+```
+
